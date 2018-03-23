@@ -14,7 +14,7 @@ public class SecondActivity extends BasePluginActivity {
     private static final String TAG = "Client-SecondActivity";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.second);

@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-public class BasePluginActivity extends Activity {
+public class BasePluginActivity extends Activity implements IRemoteActivity {
 
     private static final String TAG = "Client-BaseActivity";
 
@@ -24,35 +24,35 @@ public class BasePluginActivity extends Activity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
     }
 
     @Override
-    protected void onStart() {
+    public void onStart() {
     }
 
     @Override
-    protected void onRestart() {
+    public void onRestart() {
     }
 
     @Override
-    protected void onResume() {
+    public void onResume() {
     }
 
     @Override
-    protected void onPause() {
+    public void onPause() {
     }
 
     @Override
-    protected void onStop() {
+    public void onStop() {
     }
 
     @Override
-    protected void onDestroy() {
+    public void onDestroy() {
     }
 
     @Override

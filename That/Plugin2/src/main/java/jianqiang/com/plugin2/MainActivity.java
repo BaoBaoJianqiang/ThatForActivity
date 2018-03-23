@@ -12,7 +12,7 @@ import com.example.jianqiang.mypluginlibrary.MyPlugins;
 public class MainActivity extends BasePluginActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
