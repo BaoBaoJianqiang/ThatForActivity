@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ActivityHook1/ActivityHook1.iml" filepath="$PROJECT_DIR$/ActivityHook1/ActivityHook1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Apollo1.0.iml" filepath="$PROJECT_DIR$/Apollo1.0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HostApp/HostApp.iml" filepath="$PROJECT_DIR$/HostApp/HostApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Plugin1/Plugin1.iml" filepath="$PROJECT_DIR$/Plugin1/Plugin1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TestActivity/TestActivity.iml" filepath="$PROJECT_DIR$/TestActivity/TestActivity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/That1.0.iml" filepath="$PROJECT_DIR$/That1.0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mypluginlibrary/mypluginlibrary.iml" filepath="$PROJECT_DIR$/mypluginlibrary/mypluginlibrary.iml" />
+    </modules>
+  </component>
+</project>
