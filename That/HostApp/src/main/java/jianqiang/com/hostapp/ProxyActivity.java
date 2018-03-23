@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.example.jianqiang.mypluginlibrary.AppConstants;
+import com.example.jianqiang.mypluginlibrary.BasePluginActivity;
+import com.example.jianqiang.mypluginlibrary.CJBackStack;
 import com.example.jianqiang.mypluginlibrary.IRemoteActivity;
 import com.example.jianqiang.mypluginlibrary.RefInvoke;
 
@@ -24,11 +26,16 @@ public class ProxyActivity extends BaseHostActivity {
     private IRemoteActivity mRemoteActivity;
     private HashMap<String, Method> mActivityLifecircleMethods = new HashMap<String, Method>();
 
+    //launchmode管理器
+    protected CJBackStack backStack;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mDexPath = getIntent().getStringExtra(AppConstants.EXTRA_DEX_PATH);
         mClass = getIntent().getStringExtra(AppConstants.EXTRA_CLASS);
+
+        backStack = CJBackStack.create();
 
         loadClassLoader();
         loadResources();
@@ -43,10 +50,25 @@ public class ProxyActivity extends BaseHostActivity {
             Constructor<?> localConstructor = localClass.getConstructor(new Class[] {});
             Object instance = localConstructor.newInstance(new Object[] {});
 
-            mRemoteActivity = (IRemoteActivity) instance;
+            //mRemoteActivity = (IRemoteActivity) instance;
+            if (instance instanceof BasePluginActivity) {
+                // 根据launchMode去启动一个插件Activity
+                mRemoteActivity = backStack.launch((BasePluginActivity) instance);
+                // 如果返回栈中没有，则表示该插件aty没有创建
+                if (mRemoteActivity == null) {
+                    mRemoteActivity = (BasePluginActivity) instance;
+                }
+            } else {
+                throw new ClassCastException(
+                        "plugin activity must implements BasePluginActivity");
+            }
+
+
+
+
+            //执行插件Activity的setProxy方法，建立双向引用
             mRemoteActivity.setProxy(this, mDexPath);
 
-            //执行插件Activity的onCreate方法
             Bundle bundle = new Bundle();
             mRemoteActivity.onCreate(bundle);
         } catch (Exception e) {

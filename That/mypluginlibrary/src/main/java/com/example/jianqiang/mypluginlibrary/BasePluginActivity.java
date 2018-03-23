@@ -18,6 +18,19 @@ public class BasePluginActivity extends Activity implements IRemoteActivity {
     protected Activity that;
     protected String dexPath;
 
+
+    private int launchMode = LaunchMode.STANDARD;
+
+    public void setLunchMode(int launchMode) {
+        this.launchMode = launchMode;
+    }
+
+    @Override
+    public int getLaunchMode() {
+        return launchMode;
+    }
+
+
     public void setProxy(Activity proxyActivity, String dexPath) {
         that = proxyActivity;
         this.dexPath = dexPath;
@@ -75,7 +88,18 @@ public class BasePluginActivity extends Activity implements IRemoteActivity {
         that.startActivityForResult(intent, requestCode);
     }
 
+    @Override
     public Resources getResources() {
         return that.getResources();
+    }
+
+    @Override
+    public void finish() {
+        that.finish();
+    }
+
+    @Override
+    public Intent getIntent() {
+        return that.getIntent();
     }
 }

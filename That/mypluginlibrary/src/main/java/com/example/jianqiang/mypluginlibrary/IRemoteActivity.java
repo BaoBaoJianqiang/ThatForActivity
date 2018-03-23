@@ -17,4 +17,9 @@ public interface IRemoteActivity {
     public void onDestroy();
     public void onCreate(Bundle savedInstanceState);
     public void setProxy(Activity proxyActivity, String dexPath);
+
+    /**
+     * 获取当前Activity的启动模式
+     */
+    public int getLaunchMode();
 }

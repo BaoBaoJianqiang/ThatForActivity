@@ -29,5 +29,36 @@ public class MainActivity extends BasePluginActivity {
                 startActivity(intent);
             }
         });
+
+        findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AppConstants.PROXY_VIEW_ACTION);
+                intent.putExtra(AppConstants.EXTRA_DEX_PATH, dexPath);
+                intent.putExtra(AppConstants.EXTRA_CLASS, "jianqiang.com.plugin2.ActivityA");
+                intent.putExtra("username", "baobao");
+                startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.button3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AppConstants.PROXY_VIEW_ACTION);
+                intent.putExtra(AppConstants.EXTRA_DEX_PATH, dexPath);
+                intent.putExtra(AppConstants.EXTRA_CLASS, "jianqiang.com.plugin2.ActivityB");
+                startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.button4).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AppConstants.PROXY_VIEW_ACTION);
+                intent.putExtra(AppConstants.EXTRA_DEX_PATH, dexPath);
+                intent.putExtra(AppConstants.EXTRA_CLASS, "jianqiang.com.plugin2.ActivityC");
+                startActivity(intent);
+            }
+        });
     }
 }

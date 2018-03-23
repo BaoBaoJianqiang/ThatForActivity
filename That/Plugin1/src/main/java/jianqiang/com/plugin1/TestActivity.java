@@ -27,7 +27,7 @@ public class TestActivity extends BasePluginActivity {
                 Intent intent = new Intent();
                 intent.putExtra("username", "jianqiang");
                 that.setResult(2, intent);
-                that.finish();
+                finish();
             }
         });
     }
