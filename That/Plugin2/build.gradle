@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.3"
 
     defaultConfig {
-        applicationId "jianqiang.com.hostapp"
+        applicationId "jianqiang.com.plugin2"
         minSdkVersion 21
         targetSdkVersion 25
         versionCode 1
@@ -15,6 +15,22 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def file = output.outputFile
+            output.outputFile = new File(file.parent,
+                    "plugin2.apk")
+
+            println("$buildDir/outputs/apk/")
+            println("$rootDir/HostApp/src/main/assets")
+
+            copy {
+                from "$buildDir/outputs/apk/plugin2.apk"
+                into "$rootDir/HostApp/src/main/assets"
+            }
         }
     }
 

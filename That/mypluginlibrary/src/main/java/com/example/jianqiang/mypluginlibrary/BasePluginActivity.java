@@ -1,16 +1,11 @@
-package jianqiang.com.plugin1;
+package com.example.jianqiang.mypluginlibrary;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup.LayoutParams;
-
-import com.example.jianqiang.mypluginlibrary.AppConstants;
-import com.example.jianqiang.mypluginlibrary.RefInvoke;
-
-import java.lang.reflect.Method;
 
 public class BasePluginActivity extends Activity {
 
@@ -73,5 +68,14 @@ public class BasePluginActivity extends Activity {
     @Override
     public void startActivity(Intent intent) {
         that.startActivity(intent);
+    }
+
+    @Override
+    public void startActivityForResult(Intent intent, int requestCode) {
+        that.startActivityForResult(intent, requestCode);
+    }
+
+    public Resources getResources() {
+        return that.getResources();
     }
 }

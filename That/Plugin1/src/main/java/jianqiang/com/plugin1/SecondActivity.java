@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+import com.example.jianqiang.mypluginlibrary.BasePluginActivity;
+
 public class SecondActivity extends BasePluginActivity {
 
     private static final String TAG = "Client-SecondActivity";

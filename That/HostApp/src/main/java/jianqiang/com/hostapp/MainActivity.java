@@ -17,6 +17,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.jianqiang.mypluginlibrary.AppConstants;
+import com.example.jianqiang.mypluginlibrary.MyPlugins;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -32,6 +33,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(newBase);
         Utils.extractAssets(newBase, "plugin1.apk");
+        Utils.extractAssets(newBase, "plugin2.apk");
     }
 
     @Override
@@ -50,14 +52,18 @@ public class MainActivity extends Activity implements OnItemClickListener {
     }
 
     private void initData() {
-        File file = getFileStreamPath("plugin1.apk");
-        File[] plugins = {file};
+        File file1 = getFileStreamPath("plugin1.apk");
+        File file2 = getFileStreamPath("plugin2.apk");
+        File[] plugins = {file1, file2};
 
         for (File plugin : plugins) {
+
             PluginItem item = new PluginItem();
             item.pluginPath = plugin.getAbsolutePath();
             item.packageInfo = DLUtils.getPackageInfo(this, item.pluginPath);
             mPluginItems.add(item);
+
+            MyPlugins.plugins.put(plugin.getName(), item.pluginPath);
         }
 
         mPluginAdapter.notifyDataSetChanged();

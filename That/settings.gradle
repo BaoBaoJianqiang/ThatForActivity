@@ -1,1 +1,1 @@
-include ':HostApp', ':Plugin1', ':mypluginlibrary'
+include ':HostApp', ':Plugin1', ':Plugin2', ':mypluginlibrary'
