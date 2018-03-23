@@ -13,6 +13,8 @@ public class SecondActivity extends BasePluginActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        that.setContentView(R.layout.second);
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.second);
     }
 }

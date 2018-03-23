@@ -27,4 +27,51 @@ public class BasePluginActivity extends Activity {
         that = proxyActivity;
         this.dexPath = dexPath;
     }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    }
+
+    @Override
+    protected void onStart() {
+    }
+
+    @Override
+    protected void onRestart() {
+    }
+
+    @Override
+    protected void onResume() {
+    }
+
+    @Override
+    protected void onPause() {
+    }
+
+    @Override
+    protected void onStop() {
+    }
+
+    @Override
+    protected void onDestroy() {
+    }
+
+    @Override
+    public void setContentView(int layoutResID) {
+        that.setContentView(layoutResID);
+    }
+
+    @Override
+    public View findViewById(int id) {
+        return that.findViewById(id);
+    }
+
+    @Override
+    public void startActivity(Intent intent) {
+        that.startActivity(intent);
+    }
 }
