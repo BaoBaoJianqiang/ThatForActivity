@@ -7,7 +7,10 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 
+import com.example.jianqiang.mypluginlibrary.AppConstants;
 import com.example.jianqiang.mypluginlibrary.RefInvoke;
+
+import java.lang.reflect.Method;
 
 public class BasePluginActivity extends Activity {
 
@@ -18,8 +21,10 @@ public class BasePluginActivity extends Activity {
      * 可以当作this来使用
      */
     protected Activity that;
+    protected String dexPath;
 
-    public void setProxy(Activity proxyActivity) {
+    public void setProxy(Activity proxyActivity, String dexPath) {
         that = proxyActivity;
+        this.dexPath = dexPath;
     }
 }

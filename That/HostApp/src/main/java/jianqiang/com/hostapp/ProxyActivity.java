@@ -44,9 +44,9 @@ public class ProxyActivity extends BaseHostActivity {
             mRemoteActivity = (Activity) instance;
 
             //执行插件Activity的setProxy方法，建立双向引用
-            Method setProxy = localClass.getMethod("setProxy", new Class[] { Activity.class });
+            Method setProxy = localClass.getMethod("setProxy", new Class[] { Activity.class, String.class });
             setProxy.setAccessible(true);
-            setProxy.invoke(instance, new Object[] { this });
+            setProxy.invoke(instance, new Object[] { this, mDexPath });
 
             //一次性反射Activity的生命周期函数
             instantiateLifecircleMethods(localClass);

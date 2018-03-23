@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+import com.example.jianqiang.mypluginlibrary.AppConstants;
+
 public class MainActivity extends BasePluginActivity {
 
     private static final String TAG = "Client-MainActivity";
@@ -15,5 +17,17 @@ public class MainActivity extends BasePluginActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         that.setContentView(R.layout.activity_main);
+
+        //startActivity，插件内跳转
+        Button button1 = (Button) that.findViewById(R.id.button1);
+        button1.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AppConstants.PROXY_VIEW_ACTION);
+                intent.putExtra(AppConstants.EXTRA_DEX_PATH, dexPath);
+                intent.putExtra(AppConstants.EXTRA_CLASS, "jianqiang.com.plugin1.SecondActivity");
+                that.startActivity(intent);
+            }
+        });
     }
 }
